@@ -2,7 +2,7 @@
 
 namespace LiveControls\Permissions\Console;
 
-use Helvetiapps\LiveControls\Models\UserPermission;
+use LiveControls\Permissions\Models\UserPermission;
 use Illuminate\Console\Command;
 
 class AddUserPermissionCommand extends Command

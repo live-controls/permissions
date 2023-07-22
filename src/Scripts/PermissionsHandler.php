@@ -3,7 +3,6 @@
 namespace LiveControls\Permissions\Scripts;
 
 use App\Models\User;
-use Exception;
 use LiveControls\Permissions\Models\UserPermission;
 
 class PermissionsHandler{

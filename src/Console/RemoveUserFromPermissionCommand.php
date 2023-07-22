@@ -1,6 +1,6 @@
 <?php
 
-namespace Helvetiapps\LiveControls\Console\UserPermissions;
+namespace LiveControls\Permissions\Console;
 
 use LiveControls\Permissions\Models\UserPermission;
 use Illuminate\Console\Command;

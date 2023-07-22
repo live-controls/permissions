@@ -28,7 +28,6 @@ class PermissionsServiceProvider extends ServiceProvider
       $migrationsPath.'userpermissions',
     ];
 
-    $this->loadTranslationsFrom(__DIR__.'/../lang', 'livecontrols');
     $this->loadMigrationsFrom($migrationPaths);
 
     if ($this->app->runningInConsole())
@@ -39,14 +38,6 @@ class PermissionsServiceProvider extends ServiceProvider
         AddUserToPermissionCommand::class,
         RemoveUserFromPermissionCommand::class
       ]);
-      
-      $this->publishes([
-        __DIR__.'/../config/config.php' => config_path('livecontrols.php'),
-      ], 'livecontrols-config');
-
-      $this->publishes([
-        __DIR__.'/../lang' => $this->app->langPath('vendor/livecontrols'),
-      ], 'livecontrols-localization');
     }
   }
 }
