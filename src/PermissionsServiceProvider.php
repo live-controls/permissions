@@ -2,9 +2,9 @@
 
 namespace LiveControls\Permissions;
 
-use LiveControls\Permissions\Console\UserPermissions\RemoveUserFromPermissionCommand;
-use LiveControls\Permissions\Console\UserPermissions\AddUserPermissionCommand;
-use LiveControls\Permissions\Console\UserPermissions\AddUserToPermissionCommand;
+use LiveControls\Permissions\Console\RemoveUserFromPermissionCommand;
+use LiveControls\Permissions\Console\AddUserPermissionCommand;
+use LiveControls\Permissions\Console\AddUserToPermissionCommand;
 use LiveControls\Permissions\Http\Middleware\CheckUserPermission;
 use LiveControls\Permissions\Scripts\PermissionsHandler;
 use Illuminate\Support\ServiceProvider;
