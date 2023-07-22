@@ -16,7 +16,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LiveControls\\Permissions\\PermissonsServiceProvider"
+                "LiveControls\\Permissions\\PermissionsServiceProvider"
             ]
         }
     },
