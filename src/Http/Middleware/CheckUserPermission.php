@@ -18,10 +18,6 @@ class CheckUserPermission
      */
     public function handle(Request $request, Closure $next, string ...$keys)
     {
-        if(!config('livecontrols.userpermissions_enabled', false)){
-            return $next($request);
-        }
-
         foreach($keys as $key){
             $permission = UserPermission::where('key', '=', $key)->first();
             if(is_null($permission)){
@@ -30,6 +26,13 @@ class CheckUserPermission
             
             if($permission->users()->where('user_id', '=', auth()->id())->exists()){
                 return $next($request);
+            }
+
+            //Check user group permissions
+            if(class_exists('\LiveControls\Groups\GroupsServiceProvider', false)){
+                if($permission->groups()->whereIn('group_id', auth()->user()->groups()->get()->toArray())->count() > 0){
+                    return $next($request);
+                }
             }
         }
 
