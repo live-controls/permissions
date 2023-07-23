@@ -18,5 +18,15 @@ None
 composer require live-controls/permissions
 ```
 
+## Setup
+#### Set root users (default is user with id 1)
+1) Run in console:
+```
+php artisan vendor:publish --tag="livecontrols.permissions.config"
+```
+2) Open /config/livecontrols_permissions.php
+3) Change line "root_users" to an array of user ids
+
+
 ## Usage
 Todo
