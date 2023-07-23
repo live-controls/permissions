@@ -6,6 +6,7 @@ use Exception;
 use LiveControls\Permissions\Models\UserPermission;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Session;
+use App\Models\User;
 
 trait HasPermissions{
     public function permissions(): BelongsToMany
@@ -82,8 +83,15 @@ trait HasPermissions{
 
     public function isAdmin(): bool
     {
+        //Checks if user has rank admin (Will be ignored if rank does not exist)
         if($this->rank == 'admin'){
             return true;
+        }
+        //Checks if user is root
+        if($this instanceof User){
+            if(in_array($this->id, config('livecontrols_permissions.root_users',[]))){
+                return true;
+            }
         }
         return false;
     }
