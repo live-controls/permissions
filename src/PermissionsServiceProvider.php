@@ -19,6 +19,8 @@ class PermissionsServiceProvider extends ServiceProvider
     $this->app->bind('permissionshandler', function($app){
       return new PermissionsHandler();
     });
+
+    $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'livecontrols_permissions');
   }
 
   public function boot()
@@ -39,5 +41,9 @@ class PermissionsServiceProvider extends ServiceProvider
         RemoveUserFromPermissionCommand::class
       ]);
     }
+
+    $this->publishes([
+      __DIR__.'/../config/config.php' => config_path('livecontrols_permissions.php'),
+    ], 'livecontrols.permissions.config');
   }
 }
