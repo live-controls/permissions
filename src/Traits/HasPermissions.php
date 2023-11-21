@@ -81,7 +81,7 @@ trait HasPermissions{
         return true;
     }
 
-    public function isAdmin(): bool
+    public function hasAdminPermission(): bool
     {
         //Checks if user has rank admin (Will be ignored if rank does not exist)
         if($this->rank == 'admin'){
